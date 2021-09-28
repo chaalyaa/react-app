@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import CardView from './component/cardView';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { findByKeyword } from './actions';
+import Select from 'react-select';
 
-function App() {
+function App() {  
+
+  const dispatch = useDispatch();
+  const {ListMovies, pages} = useSelector( state=>state.dataMovies );  
+
+  useEffect(()=>{
+    dispatch(findByKeyword("Batman", pages+1));
+  },[dispatch]);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          Natasha
+        </p>        
       </header>
+      
+      <div style={{ minHeight: "800px" }}>
+        {
+          ListMovies.hasOwnProperty('Search') ? 
+          ListMovies.Search.map((item) => {
+            return <CardView data={item}></CardView>
+          }) : null
+        }
+      </div>
+      
     </div>
   );
 }
+
+
 
 export default App;
