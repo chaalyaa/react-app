@@ -1,3 +1,17 @@
+# React APP
+
+### Component
+- `masterdata.json` : To Set Up Link URL to Request
+- `Card View`       : To Generate a Card View of the Movie List
+
+### Redux Component
+- `homeReducer`     : To set up global state
+
+### Actions
+- ####`homeAction`
+    - findByKeyword   : Intentionally to send a request of a movie list by keyword
+
+==================================================================================
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
