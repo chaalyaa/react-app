@@ -12,7 +12,7 @@ function App() {
   const {ListMovies, pages} = useSelector( state=>state.dataMovies );  
 
   useEffect(()=>{
-    dispatch(findByKeyword("Batman", pages+1));
+    dispatch(findByKeyword("Batman", pages));
   },[dispatch]);
 
   return (
@@ -32,7 +32,8 @@ function App() {
           }) : null
         }
       </div>
-      
+        <button>Next</button>
+        <button>Preview</button>
     </div>
   );
 }
